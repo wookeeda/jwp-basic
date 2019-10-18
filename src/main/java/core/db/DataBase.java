@@ -18,6 +18,14 @@ public class DataBase {
         return users.get(userId);
     }
 
+    public static User updateUser(User user){
+        User target = users.get(user.getUserId());
+        target.setPassword(user.getPassword());
+        target.setName(user.getName());
+        target.setEmail(user.getEmail());
+        return target;
+    }
+
     public static Collection<User> findAll() {
         return users.values();
     }

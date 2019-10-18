@@ -2,6 +2,8 @@ package next;
 
 import java.io.File;
 
+import core.db.DataBase;
+import next.model.User;
 import org.apache.catalina.startup.Tomcat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +12,9 @@ public class WebServerLauncher {
     private static final Logger logger = LoggerFactory.getLogger(WebServerLauncher.class);
 
     public static void main(String[] args) throws Exception {
+
+        DataBase.addUser(new User("1", "1", "1", "1@1"));
+
         String webappDirLocation = "webapp/";
         Tomcat tomcat = new Tomcat();
         tomcat.setPort(8080);
